@@ -4,9 +4,13 @@ $action = $_GET["action"] ?? "display";
 
 switch ($action) {
 
-  case 'register':
-    // code...
-    break;
+    // case 'register':
+    //   include "../models/UserManager.php";
+    //   if (isset($_POST['username']) && isset($_POST['password'])) {
+    //     CreateNewUser($_POST['username'], $_POST['password']);
+    //   }
+    //   header('Location: ?action=display');
+    //   break;
 
   case 'logout':
     if (isset($_SESSION['userId'])) {
@@ -40,7 +44,11 @@ switch ($action) {
     break;
 
   case 'newComment':
-    // code...
+    include "../models/CommentManager.php";
+    if (isset($_SESSION['userId']) && isset($_POST['postId']) && isset($_POST['comment'])) {
+      CreateNewComment($_SESSION['userId'], $_POST['postId'], $_POST['comment']);
+    }
+    header('Location: ?action=display');
     break;
 
   case 'display':

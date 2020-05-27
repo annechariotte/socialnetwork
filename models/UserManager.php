@@ -4,7 +4,15 @@ include_once "PDO.php";
 function GetOneUserFromId($id)
 {
   global $PDO;
-  $response = $PDO->query("SELECT * FROM user WHERE id = $id");
+  $response = $PDO->prepare(
+    "SELECT * FROM user "
+      . " WHERE id = :id "
+  );
+  $response->execute(
+    array(
+      "id" => $id
+    )
+  );
   return $response->fetch();
 }
 
@@ -33,3 +41,15 @@ function GetUserIdFromUserAndPassword($login, $password)
     return -1; //On retourne -1 car on est sur qu'il n'y aura pas d'id négatif.
   }
 }
+
+// function CreateNewUser($login, $password)
+// {
+//   global $PDO;
+//   $response = $PDO->prepare("INSERT INTO user(nickname, password) values (:nickname, :password)");
+//   $response->execute(
+//     array(
+//       "nickname" => $login,
+//       "password" => $password
+//     )
+//   );
+// }
