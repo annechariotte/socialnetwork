@@ -11,7 +11,9 @@ function GetOneCommentFromId($id)
 function GetAllComments()
 {
   global $PDO;
-  $response = $PDO->query("SELECT * FROM comment ORDER BY created_at ASC");
+  $response = $PDO->query("SELECT post.*, user.nickname "
+    . "FROM comment LEFT JOIN user on (post.user_id = user.id)"
+    . "ORDER BY created_at ASC");
   return $response->fetchAll();
 }
 
