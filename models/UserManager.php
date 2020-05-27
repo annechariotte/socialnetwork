@@ -23,22 +23,21 @@ function GetAllUsers()
   return $response->fetchAll();
 }
 
-function GetUserIdFromUserAndPassword($login, $password)
+function GetUserIdFromUserAndPassword($username, $password)
 {
   global $PDO;
-  $preparedRequest = $PDO->prepare("SELECT * FROM user where nickname=:nickname and password=:password");
-  $preparedRequest->execute(
+  $response = $PDO->prepare("SELECT id FROM user WHERE nickname = :username AND password = MD5(:password) ");
+  $response->execute(
     array(
-      "nickname" => $login,
+      "username" => $username,
       "password" => $password
     )
   );
-  $users = $preparedRequest->fetchAll();
-  if (count($users) == 1) {
-    $user = $users[0];
-    return $user['id'];
+  if ($response->rowCount() == 1) {
+    $row = $response->fetch();
+    return $row['id'];
   } else {
-    return -1; //On retourne -1 car on est sur qu'il n'y aura pas d'id négatif.
+    return -1;
   }
 }
 
@@ -57,7 +56,7 @@ function IsNicknameFree($nickname)
 function CreateNewUser($nickname, $password)
 {
   global $PDO;
-  $response = $PDO->prepare("INSERT INTO user (nickname, password) values (:nickname , :password )");
+  $response = $PDO->prepare("INSERT INTO user (nickname, password) values (:nickname , MD5(:password) )");
   $response->execute(
     array(
       "nickname" => $nickname,
