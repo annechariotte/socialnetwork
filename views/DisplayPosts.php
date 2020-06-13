@@ -4,7 +4,7 @@
 <head>
   <title>Social Network (PHP Course))</title>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="img/icon.png">
+  <link rel="icon" type="image/png" href="img/tomhanks-icon.png">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
   </script>
@@ -19,7 +19,7 @@
 <body>
   <header class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="?">
-      <img src="img/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      <img src="img/tomhanks-icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
       Tiny Social Network
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,8 +58,8 @@
 
   <div class="container">
     <div class="row">
-      <div class="col">
-        <h1 class="display-4">KEEP CALM & LOVE FOXES</h1>
+      <div class="col header">
+        <h1 class="display-4">KEEP CALM & L<img src="img/tom-ball.png" class="" style="height: 44px; margin-bottom: 12px;" alt="O">VE T<img src="img/tom-ball.png" class="" style="height: 44px; margin-bottom: 12px;" alt="O">M HANKS</h1>
         <blockquote class="blockquote text-center">
           <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua.</p>
@@ -74,7 +74,7 @@
         <div class="col">
           <form class="input-group" method="POST" action="?action=newMsg">
             <input name="msg" class="form-control" placeholder="Add a message" type="text">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-dark rounded-0">Submit</button>
           </form>
         </div>
       </div>
@@ -87,7 +87,7 @@
         if (isset($posts)) {
           foreach ($posts as $onePost) {
         ?>
-            <div class="panel panel-white post panel-shadow">
+            <div class="panel panel-white post">
               <div class="post-heading">
                 <div class="pull-left image">
                   <img src="img/avatars/default.png" class="rounded-circle img-thumbnail avatar" alt="<?= $onePost['user_id']; ?>">
@@ -110,7 +110,7 @@
                     <form class="input-group" method="POST" action="?action=newComment">
                       <input name="postId" type="hidden" value="<?= $onePost['id'] ?>">
                       <input name="comment" class="form-control" placeholder="Add a comment" type="text">
-                      <span class="input-group-text">
+                      <span class="input-group-text rounded-0">
                         <a href="#" onclick="$(this).closest('form').submit()"><i class="fa fa-edit"></i></a>
                       </span>
                     </form>
@@ -126,7 +126,7 @@
                   ?>
                       <li class="comment">
                         <a class="pull-left" href="#">
-                          <img class="avatar" src="img/avatars/default.png">
+                          <img class="avatar rounded-circle img-thumbnail" src="img/avatars/default.png">
                         </a>
                         <div class="comment-body">
                           <div class="comment-heading">

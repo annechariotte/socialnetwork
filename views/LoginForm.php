@@ -19,7 +19,7 @@
 <body>
   <header class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="?">
-      <img src="img/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      <img src="img/tomhanks-icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
       Tiny Social Network
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,8 +33,8 @@
 
   <div class="container">
     <div class="row">
-      <div class="col">
-        <h1 class="display-4">KEEP CALM & LOVE FOXES</h1>
+      <div class="col header">
+        <h1 class="display-4">KEEP CALM & L<img src="img/tom-ball.png" class="" style="height: 44px; margin-bottom: 12px;" alt="O">VE T<img src="img/tom-ball.png" class="" style="height: 44px; margin-bottom: 12px;" alt="O">M HANKS</h1>
         <blockquote class="blockquote text-center">
           <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua.</p>
@@ -45,7 +45,7 @@
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <form class="form-signin" method="POST" action="?action=login">
-          <h2 class="form-signin-heading">Welcome Back</h2>
+          <h2 class="form-signin-heading">WELCOME BACK</h2>
           <?php
           if (isset($errorMsg)) {
             echo "<div class='alert alert-warning' role='alert'>$errorMsg</div>";
@@ -53,7 +53,7 @@
           ?>
           <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
           <input type="password" class="form-control" name="password" placeholder="Password" required="" />
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+          <button class="btn btn-lg btn-dark btn-block rounded-0" type="submit">Login</button>
         </form>
       </div>
     </div>
